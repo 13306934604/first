@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/jquery-3.2.1.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<div class="navbar-title">
+						<span class="glyphicon glyphicon-chevron-left pull-left" id="goback"></span> 回答
+						<span class="glyphicon glyphicon-home pull-right" id="home"></span>
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container">
+			<form action="/user/answer" method="post">
+				<div class="form-group">
+					<textarea name="content" rows="15" class="form-control"placeholder="请详细描述你的答案"></textarea>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="回答" class="form-control btn btn-success" />
+				</div>
+			</form>
+		</div>
+		
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">提问-智游问答</h4>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">确认</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+		<script>
+			
+			$('#goback').click(function(){
+				history.go(-1)
+			})
+			$('#home').click(function(){
+				location.href = '/'
+			})
+			
+			//获取到当前的question
+			var Question = $.cookie('question');
+//			alert(Question);
+			
+			$('form').submit(function(e){
+				e.preventDefault();
+				$.post(this.action,$(this).serialize(),(data)=>{
+					$('.modal-body').html(data.msg);
+					$('#myModal').modal('show').on('hide.bs.modal',function(){
+						if(data.code==1){
+							location.href = '/'
+						}else{
+							location.href = 'answer.html'
+						}
+						
+					})
+				})
+			})
+			
+		</script>
+	</body>
+</html>

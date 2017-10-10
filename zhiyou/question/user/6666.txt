@@ -1,0 +1,1 @@
+{"username":"6666","password":"6666","check_psw":"6666","sex":"man","email":"66666666@qq.com","scoure":"html","ip":"::1","time":1506600386878}

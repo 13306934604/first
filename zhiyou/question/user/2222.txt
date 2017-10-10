@@ -1,0 +1,1 @@
+{"username":"2222","password":"2222","check_psw":"2222","sex":"man","email":"222222222@qq.com","scoure":"php"}

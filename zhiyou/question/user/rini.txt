@@ -1,0 +1,1 @@
+{"username":"rini","password":"1234","check_psw":"1234","sex":"man","email":"qwer@qq.com","scoure":"html","ip":"::ffff:192.168.1.151","time":1506673819078}

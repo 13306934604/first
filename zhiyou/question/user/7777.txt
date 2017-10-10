@@ -1,0 +1,1 @@
+{"username":"7777","password":"7777","check_psw":"7777","sex":"man","email":"741717664@qq.cpm","scoure":"html","ip":"::1","time":1506671465109}
